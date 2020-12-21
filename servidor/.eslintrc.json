@@ -1,0 +1,41 @@
+{
+	"settings": {
+		"flowtype": {
+			"onlyFilesWithFlowAnnotation" : true
+		}
+	},
+	"parser": "babel-eslint",
+	"plugins": [
+		"flowtype"
+	],
+    "env": {
+        "es2020": true,
+        "node": true
+    },
+    "extends": [
+	    "eslint:recommended",
+	    "plugin:flowtype/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+           2 
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ]
+    }
+}
