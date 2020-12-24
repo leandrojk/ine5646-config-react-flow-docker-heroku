@@ -136,6 +136,8 @@ Depois que você conseguiu executar a aplicação no seu computador local a apar
 
 ### Transferindo a imagem docker para o Heroku
 
+No exemplo a aplicação receberá o nome `ine5646-app-demo`. Este nome precisa ser único para todo o Heroku. Assim, se o comando `heroku create ...` indicar que o nome já existe você deve escolher outro nome. 
+
 Execute os seguintes comandos em um terminal:
 
 ```bash
@@ -156,4 +158,4 @@ Depois que a imagem foi transferida para o Heroku proceda da seguinte forma:
 4. Clique no botão *Reveal Config Vars*
 5. Adicione todas as variáveis de ambiente que estão definidas no arquivo `.env`. No caso, apenas a variável SEGUNDOS_AGUARDANDO.
 
-A partir de agora a aplicação pode ser acessada a partir de qualquer navegador.
+A partir de agora a aplicação pode ser acessada a partir de qualquer navegador no endereço `https://ine5646-app-demo.heroku.com`.
