@@ -4,7 +4,7 @@ Aplicação para demonstrar quais são os arquivos de configuração, no lado cl
 
 ## Configuração no seu computador
 
-O progrma Docker Desktop precisa estar instalado e em execução na sua máquina. Acesse [https://www.docker.com/get-started](https://www.docker.com/get-started) para saber como fazer isso.
+O programa Docker Desktop precisa estar instalado e em execução na sua máquina. Acesse [https://www.docker.com/get-started](https://www.docker.com/get-started) para saber como fazer isso.
 
 Se o VSCode for utilizado então é preciso instalar a extensão [Remote Development da Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 
@@ -34,6 +34,10 @@ A variável de ambiente `LOCAL` é opcional e indica que a aplicação será exe
 Quando o container é instalado no Heroku a variável `process.env.PORT`, definida pelo próprio Heroku,  conterá a porta usada pela aplicação.
 
 O arquivo **.env** também poderia ser usado também para armazenar dados sigilosos como senhas, chaves, etc. Essas informações nunca devem ser armazenadas em locais públicos (como repositórios git ou repositórios de imagens docker).
+
+#### Editando Remotamente
+
+Entre no VSCode, clique em `Open a Remote Window` (canto inferior esquerdo) e selecione a opção `Remote-Containers: Open Folder in Container` e selecione a pasta que contém a aplicação.
 
 ##### Instalando bibliotecas JavaScript
 
