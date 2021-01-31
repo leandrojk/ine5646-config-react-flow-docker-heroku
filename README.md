@@ -131,8 +131,18 @@ Não há nada de especial com o valor 4000, poderia ser qualquer outro número, 
 Como neste exemplo o arquivo *.env* só define duas variáveis obrigatórias uma forma alternativa de instanciar e executar um container seria definir o valor de `SEGUNDOS_AGUARDANDO` e de `LOCAL` diretamente:
 
 ```bash
-docker run -d --name ine5646-app-demo -p 4000:3000 -e SEGUNDOS_AGUARDANDO=3 -e LOCAL=sim ine5646-app-demo
+docker run -d --name ine5646-app-demo --rm -p 4000:3000 -e SEGUNDOS_AGUARDANDO=3 -e LOCAL=sim ine5646-app-demo
 ```
+
+##### Tirando a aplicação do ar
+
+Para tirar a aplicação do ar remova o container digitando:
+
+```bash
+docker stop ine5646-app-demo
+```
+
+Obs: o parâmetro `--rm` no comando `docker run ...` usado para executar a aplicação faz com que o contairer seja removido do docker após ter sua execução parada.
 
 ## Fazendo o deploy da imagem no Heroku
 
@@ -140,7 +150,7 @@ Depois que você conseguiu executar a aplicação no seu computador local a apar
 
 ### Transferindo a imagem docker para o Heroku
 
-No exemplo a aplicação receberá o nome `ine5646-app-demo`. Este nome precisa ser único para todo o Heroku. Assim, se o comando `heroku create ...` indicar que o nome já existe você deve escolher outro nome. 
+No exemplo a aplicação receberá o nome `ine5646-app-demo` , ou seja, preferencialmente o mesmo nome da imagem que foi criada. Porém este nome precisa ser único para todo o Heroku. Assim, se o comando `heroku create ...` indicar que o nome já existe você deve escolher outro nome.
 
 Execute os seguintes comandos em um terminal:
 
@@ -151,6 +161,8 @@ docker tag ine5646-app-demo registry.heroku.com/ine5646-app-demo/web
 docker push registry.heroku.com/ine5646-app-demo/web
 heroku container:release web -a ine5646-app-demo
 ```
+
+No comando `docker tag ...` acima note que o termo `ine5646-app-demo` aparece duas vezes. A primeira vez representa o nome da imagem que foi criada no computador local. A segunda representa o nome da aplicação criada no Heroku. Se o nome `ine5646-app-demo` já estiver sendo usado no Heroku é preciso dar outro nome para a aplicação no Heroku. Assim, por exemplo, se o novo nome for dado pelo comando `heroku create ine5646-app-demo-ljk` então o comando `docker tag ...` deve ser `docker tag ine5646-app-demo registry.heroku.com/ine5646-app-demo-ljk/web`.
 
 ### Definindo as variáveis de ambiente no Heroku
 
